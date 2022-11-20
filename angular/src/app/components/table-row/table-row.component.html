@@ -1,0 +1,21 @@
+<th scope="row">{{data.id}}</th>
+<td>{{getDate(data.date)}}</td>
+<td>{{data.Comments}}</td>
+<td> <button  (click)="open(content)">ACTION</button></td>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Profile Details</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form>
+			<div class="mb-3">
+                <p><strong>Sender:</strong> {{data.sender.firstName}} {{data.sender.lastName}}</p>
+                <p><strong>Recipient:</strong> {{data.recipient.firstName}} {{data.recipient.lastName}}</p>
+                <p><strong>Amount:</strong> {{data.CurrencyCd}} {{data.Amount}}</p>
+                <p><strong>Status:</strong> {{data.status}}</p>
+			</div>
+		</form>
+	</div>
+</ng-template>
